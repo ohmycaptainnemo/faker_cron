@@ -1,0 +1,16 @@
+version: "3.7"
+
+services:
+  faker_cron:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: ohmycaptainnemo/faker_cron
+    container_name: faker_cron
+    working_dir: /opt/working
+    volumes:
+      - .:/opt/working
+    command: tail -F anything
+    environment:
+      - PYTHONDONTWRITEBYTECODE=1
+      - PYTHONIOENCODING=utf8
